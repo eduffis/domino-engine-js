@@ -36,16 +36,15 @@ No build tools or installation steps are required.
 
 Project Structure
 domino-engine-js
-│
-├── index.html
-├── jquery-ui.js
-├── jquery.min.js
-├── odometer-theme-car.css
-├── odometer.js
-├── java_code.js
-├── domino_moderno.css
-├── images/
-└── README.md
+index.html
+jquery-ui.js
+jquery.min.js
+odometer-theme-car.css
+odometer.js
+java_code.js
+domino_moderno.css
+images/
+README.md
 
 Future Improvements
 Some ideas for future improvements:
