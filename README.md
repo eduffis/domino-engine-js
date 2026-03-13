@@ -1,5 +1,4 @@
 # domino-engine-js
-A classic domino game engine written in pure JavaScript with AI opponent and dynamic board layout.
 A classic domino game engine written in pure JavaScript with an AI opponent and dynamic board layout.
 
 This project was originally developed as a personal experiment to simulate a real domino table in the browser. The engine renders domino tiles dynamically using CSS and implements a simple AI capable of choosing playable tiles.
