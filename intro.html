@@ -1,0 +1,167 @@
+<style>
+body {
+	margin-top: 0px;	    	
+	background-image: url(./images/fondo_bambu.gif);
+	background-size: cover; height: 100%; width: 100%; margin: 0 auto; 		
+}
+#mesa{
+	margin:0 auto;
+	width:95%;
+	height:90%;	
+	margin-top:2%;	
+	background-color:#752e0a; 	
+	border-radius:10px;
+	border:3px solid #333;		
+}
+
+
+#mesa_interna{
+	margin:0 auto;
+	width:98%;
+	height:95%;	
+	margin-top:1%;
+	
+	background-color:#67a740;
+	border-radius:10px;
+	border:3px solid #333;		
+	
+}
+#fichas_acostadas {
+	overflow:auto; 
+	width:40px; 
+	height:20px;	
+	border: 1px solid #000;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #FFF;
+  }
+  
+  #corales{
+	width:40%;
+	height:50%;	
+	margin-left:60%;
+  }
+
+  #cangrejo{
+	position:absolute;
+	top:55%;
+	left:60%;
+	width:30%;
+	height:30%;			
+  }
+  #caracol{
+	position:absolute;
+	top:30%;
+	left:30%;
+	width:10%;
+	height:10%;			
+  }
+
+  #caballito{
+	position:absolute;
+	top:30%;
+	left:40%;
+	width:10%;
+	height:10%;			
+  }
+ 
+  #tiburon{
+	position:absolute;
+	top:30%;
+	left:5%;
+	width:30%;
+	height:30%;			
+  }
+  
+  #inicio{
+	position:absolute;
+	top:75%;  
+	left:15%;
+	width:70%;
+	height:6%;	
+	margin-top:5%;	
+	background-color:#ea8622; 	
+	border-radius:10px;
+	border:3px solid #000;		
+	font-family:Comic Sans MS;
+	font-size:30px;
+	color:#FFF;	
+}
+
+#cel{
+	font-family:Comic Sans MS;
+	font-size:30px;
+	color:yellow;	
+}
+
+#load{
+	position:absolute;
+	top:30%;
+	left:40%;	
+}
+</style>
+
+<body>
+<div id="mesa">		
+	<div id="mesa_interna">
+	<div id="jugadas" align="center">
+			<div align="center" style="font-family:Comic Sans MS;font-size:30px;color:#FFF;">Bienvenidos al juego de dominó del mar de corales</div>
+			<div id="cel"><marquee>Si utilizas el celular ubícalo Horizontalmente</marquee></div>
+				<div id="jugadas" align="center" >			
+					<div id="izq"><img src="./images/2_2.jpg" id="fichas_acostadas" style="position:absolute; top:75%;left:50%; box-shadow: 1px 1px 1px #888888;">
+					<img src="./images/2_5.jpg" id="fichas_acostadas" style="left:845px; box-shadow: 1px 1px 1px #888888;position:absolute; top:75%;background-color:#FFC;	width:40px; 	transform: rotate(180deg); -ms-transform: rotate(180deg); -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -o-transform: rotate(180deg);"><img src="./images/5_3.jpg" id="fichas_acostadas" style="left:890px; box-shadow: 1px 1px 1px #888888;position:absolute; top:75%;background-color:#FFC;	width:40px; 	transform: rotate(180deg); -ms-transform: rotate(180deg); -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -o-transform: rotate(180deg);">
+				
+				</div>	
+					
+				<div><img src="./images/corales.png" id="corales"></div>
+				<div ><img src="./images/cangrejoIni.png" id="cangrejo"></div>
+				<div ><img src="./images/caracolIni.png" id="caracol"></div>
+				<div ><img src="./images/tiburon.png" id="tiburon"></div>
+				<div ><img src="./images/caballitoIni.png" id="caballito"></div>
+				<form name="form1" method="post">
+				<div align="buttom" style="font-family:Comic Sans MS;font-size:20px;color:#FFF;position: absolute; bottom: 30%;width:50%;left:25%;">Este juego es muy divertido el objetivo es dominar los  4 mundos obteniendo el mayor puntaje posible, ten cuidado si no inicias tu juego con un doble, los demás te harán trampa. Ingresa tus datos para identificarte . Tu número de Identificación:<input type="text" name="cedtra" style="background-color:#CCC;height:50px;" maxlength="15">    y  tu nombre:<input type="text" name="nombre" style="background-color:#CCC;height:50px;" maxlength="15"></div>	
+				<div id="marcador"></div>
+				</form>
+		</div>	
+	</div>						
+</div>
+<div id="load"></div>
+<div id="inicio" align="center" onclick="setJugador();"><div style="margin: auto;">START</div></div>
+</body>
+<script src="jquery-ui.js"></script>
+<script src="jquery.min.js"></script>
+<script src="java_code.js"></script>
+<script>
+function setJugador(){
+	var cedtra = document.forms[0].cedtra.value;
+	var nombre = document.forms[0].nombre.value;	
+	if(cedtra.length>0 && nombre.length>0){		
+		if(cedtra.length>=5 && nombre.length>=3){		
+			$("#load").html("<img src='https://cdn130.picsart.com/303251882098201.gif?to=min&r=640' style='border-radius:10px;'>");		
+			sendPuntaje(0);		
+			document.cookie="c="+ cedtra + "|n=" + nombre;
+			setTimeout(function(){ $("#load").html("");document.location="index2.html"; }, 5000);
+			}else{
+				alert("Hola: Para iniciar el Juego tienes que ingresar un numero de indentificacion y tu Nombre Real!!");
+			}				
+	}else{
+		alert("Hola: Para iniciar el Juego tienes que ingresar tu numero de indentificacion y tu Nombre");
+	}
+}
+
+function sendPuntaje(mpuntos){		
+	var cedtra = document.forms[0].cedtra.value;
+	var nombre = document.forms[0].nombre.value;	
+	var u = b64_to_utf8(b64_to_utf8(b64_to_utf8("WVVoU01HTkViM1pNTW14MVpFaEthR0p0VmpCTWJVNW9ZVzFHZWxsWGEzVlpNamwwVERKU2RtSlhiSFZpZVRsb1kwaEJkbU5JVm5Wa1IwWnhXbE0xZDJGSVFTOVplakE5")));		
+	MostrarConsulta2(u + cedtra + "&p=" + mpuntos + "&n=" + nombre,"marcador"); return false;
+}
+
+
+function b64_to_utf8(str) {
+  return decodeURIComponent(escape(window.atob( str )));
+}
+
+
+
+</script>
