@@ -41,7 +41,6 @@ jquery.min.js
 odometer-theme-car.css
 odometer.js
 java_code.js
-domino_moderno.css
 images/
 README.md
 
